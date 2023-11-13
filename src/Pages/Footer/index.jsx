@@ -12,8 +12,8 @@ function Footer() {
         </div>
         <div className="text-links-container">
           <div className='navigation-links'>
-            <a href="https://www.marvel.com/">Data provided by Marvel</a>
-            <a href="https://developer.marvel.com/">developer.marvel.com</a>
+            <a className='footer-anchors' href="https://www.marvel.com/">Data provided by Marvel</a>
+            <a className='footer-anchors' href="https://developer.marvel.com/">developer.marvel.com</a>
             <Link to="/characters">Characters</Link>
             <Link to="/comics">Comics</Link>
             <Link to="/series">Series</Link>

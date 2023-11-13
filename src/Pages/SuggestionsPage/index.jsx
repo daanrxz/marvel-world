@@ -30,7 +30,7 @@ function SuggestionPage() {
   async function handleFormSubmit(e) {
     e.preventDefault();
     try {
-      if (editingIndex !== null) {
+      if (editingIndex) {
         // Edit existing comment
         const response = await axios.put(`http://localhost:5179/comments/${comments[editingIndex].id}`, formData);
         const updatedComments = [...comments];
@@ -79,10 +79,9 @@ function SuggestionPage() {
         <div className="display-container">
           {comments.map((comment, index) => (
             <div className='comment-box' key={index}>
-              
               <h2>Title: {comment.title}</h2>
               <p>Category: {comment.category}</p>
-              <p>{comment.description}</p>
+              <p>Your Idea:{comment.description}</p>
               {comment.file && <p>File: {comment.file.name}</p>}
               <button className='buttons-box' onClick={() => handleEdit(index)}>Edit</button>
               <button className='buttons-box' onClick={() => handleDelete(index)}>Delete</button>

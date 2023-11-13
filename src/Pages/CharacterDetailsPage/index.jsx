@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const loadingGif = 'https://pa1.aminoapps.com/7189/d9db06c9e17513208042210fe00e8341f180315cr1-640-480_hq.gif';
+const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironman_ldhhscp2.gif';
 
 const API_URL = "https://gateway.marvel.com/v1/public";
 const API_KEY = "fd986a65b294a48abcc1a51232b02444";
