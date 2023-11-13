@@ -111,7 +111,9 @@ const handleBack = () => {
 
             
         </div>
-        <button className='buttons-box' onClick={handleBack}>Back</button>
+        <div className="buttons">
+                <button className='buttons-box' onClick={handleBack}>Back</button>  
+            </div>
         </div>
     );
 }

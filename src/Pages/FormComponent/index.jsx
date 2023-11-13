@@ -17,14 +17,15 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
   return (
     <form className='form-container' onSubmit={handleSubmit}>
       <div>
-        <h1>Have a suggestion? Submit here.</h1>
+        <h1>Have an idea? Submit here.</h1>
       </div>
       <input 
-        type="text" 
+        type="text"
         name="title" 
-        placeholder="Name / Title" 
+        placeholder="* Name / Title" 
         value={formData.title} 
         onChange={handleChange} 
+        required
       />
       <select name="category" value={formData.category} onChange={handleChange}>
         <option value="Characters">Characters</option>
@@ -33,9 +34,10 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
       </select>
       <textarea 
         name="description" 
-        placeholder="Description" 
+        placeholder="* Description" 
         value={formData.description} 
-        onChange={handleChange} 
+        onChange={handleChange}
+        required 
       />
       <input 
         type="file" 

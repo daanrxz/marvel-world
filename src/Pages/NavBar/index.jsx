@@ -22,7 +22,7 @@ function NavBar({ onSearchChange }) {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo-link">
-        <img src="/marvel-logo.svg" alt="Logo" className="navbar-logo" />
+        <img src="/marvel-logo.png" alt="Logo" className="navbar-logo" />
       </Link>
       <div className="navbar-links">
         <Link to="/characters" className="navbar-link">
@@ -35,7 +35,7 @@ function NavBar({ onSearchChange }) {
           Series
         </Link>
         <Link to="/suggestions" className="navbar-link">
-          Suggestions
+          Have an idea?
         </Link>
       </div>
     </nav>

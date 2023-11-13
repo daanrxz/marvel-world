@@ -7,7 +7,7 @@ const API_KEY = "fd986a65b294a48abcc1a51232b02444";
 const HASH = "55660d0ce5a27d43b54fdac1c38ba2e3";
 const LIMIT = 20;
 
-const loadingGif = 'https://static.demilked.com/wp-content/uploads/2016/06/gif-animations-replace-loading-screen-12.gif';
+const loadingGif = 'https://pa1.aminoapps.com/7189/d9db06c9e17513208042210fe00e8341f180315cr1-640-480_hq.gif';
 
 function ComicsListPage() {
   const [comics, setComics] = useState([]);
