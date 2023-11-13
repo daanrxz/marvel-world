@@ -1,19 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
+function NavBar({ onSearchChange }) {
+  const [search, setSearch] = useState('');
+  const location = useLocation();
 
-function NavBar() {
+  useEffect(() => {
+    setSearch(''); // Clear search when navigating
+  }, [location]);
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+    onSearchChange(e.target.value);
+  };
+
+  const showSearchBar =
+    location.pathname === '/characters' ||
+    location.pathname === '/comics' ||
+    location.pathname === '/series';
+
   return (
     <nav className="navbar">
-      <img src="public/marvel-logo.svg" alt="Logo" className="navbar-logo" />
+      <Link to="/" className="navbar-logo-link">
+        <img src="/marvel-logo.svg" alt="Logo" className="navbar-logo" />
+      </Link>
       <div className="navbar-links">
-        <Link to="/characters" className="navbar-link">Characters</Link>
-        <Link to="/comics" className="navbar-link">Comics</Link>
-        <Link to="/series" className="navbar-link">Series</Link>
-        <Link to="/suggestions" className='navbar-link'>Suggestions</Link>
+        <Link to="/characters" className="navbar-link">
+          Characters
+        </Link>
+        <Link to="/comics" className="navbar-link">
+          Comics
+        </Link>
+        <Link to="/series" className="navbar-link">
+          Series
+        </Link>
+        <Link to="/suggestions" className="navbar-link">
+          Suggestions
+        </Link>
       </div>
     </nav>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

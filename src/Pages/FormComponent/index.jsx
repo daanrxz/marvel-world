@@ -11,15 +11,18 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    onSubmit(e);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='form-container' onSubmit={handleSubmit}>
+      <div>
+        <h1>Have a suggestion? Submit here.</h1>
+      </div>
       <input 
         type="text" 
         name="title" 
-        placeholder="Title" 
+        placeholder="Name / Title" 
         value={formData.title} 
         onChange={handleChange} 
       />

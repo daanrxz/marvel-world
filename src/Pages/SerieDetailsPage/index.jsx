@@ -70,15 +70,16 @@ const handleBack = () => {
     }
 
     return (
+        <div>
         <div className="details-container">
-            <div>
+            <div className="details-div">
                 <img src={`${serie.thumbnail.path}.${serie.thumbnail.extension}`} alt={`${serie.title} Thumbnail`} />
                 <h1>{serie.title}</h1>
                 <p>{serie.description || "No description available."}</p>
             </div>
             
 
-            <div>
+            <div className="comic-details-div">
                 <h2>Comics</h2>
                 {comics.length ? (
                     <ul>
@@ -92,7 +93,7 @@ const handleBack = () => {
                     <p>No comics available for this character.</p>
                 )}
             </div>
-            <div>
+            <div className="series-details-div">
                 <h2>Characters</h2>
                 {characters.length ? (
                     <ul>
@@ -108,7 +109,9 @@ const handleBack = () => {
             </div>
 
 
-            <button onClick={handleBack}>Back</button>
+            
+        </div>
+        <button className='buttons-box' onClick={handleBack}>Back</button>
         </div>
     );
 }

@@ -54,13 +54,14 @@ function ComicDetailsPage() {
     }
 
     return (
+        <div>
         <div className="details-container">
-            <div>
+            <div className="details-div">
                 <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={`${comic.name} Thumbnail`} />
                 <h1>{comic.name}</h1>
                 <p>{comic.description || "No description available."}</p>
             </div>
-            <div>
+            <div className="series-details-div">
                 <h2>Characters</h2>
                 {characters.length ? (
                     <ul>
@@ -71,15 +72,12 @@ function ComicDetailsPage() {
                         ))}
                     </ul>
                 ) : (
-                    <p>No characters available for this character.</p>
+                    <p>No characters available for this comic.</p>
                 )}
-            </div>
-
-            <button onClick={handleBack}>Back</button>
-
-
+            </div>   
         </div>
-
+        <button className='buttons-box' onClick={handleBack}>Back</button>
+        </div>
     )
 
 
