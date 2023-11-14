@@ -42,7 +42,7 @@ function App() {
         <Route path='/series/:serieId' element={<SerieDetailsPage />} />
         <Route path='/suggestions' element={<SuggestionPage />} />
       </Routes>
-      {showFooter && location.pathname !== "/" && <Footer />}
+      {/* {showFooter && location.pathname !== "/" && <Footer />} */}
     </div>
   );
 }

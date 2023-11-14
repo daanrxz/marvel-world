@@ -59,6 +59,7 @@ function ComicDetailsPage() {
             <div className="details-div">
                 <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={`${comic.name} Thumbnail`} />
                 <h1>{comic.name}</h1>
+                <p>Page Count:{comic.pageCount || "No page count available"}</p>
                 <p>{comic.description || "No description available."}</p>
             </div>
             <div className="series-details-div">
@@ -72,7 +73,7 @@ function ComicDetailsPage() {
                         ))}
                     </ul>
                 ) : (
-                    <p>No characters available for this comic.</p>
+                    <p className="no-items">No characters available for this comic.</p>
                 )}
             </div>   
         </div>

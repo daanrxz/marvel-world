@@ -1,23 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-function NavBar({ onSearchChange }) {
-  const [search, setSearch] = useState('');
-  const location = useLocation();
+function NavBar() {
 
-  useEffect(() => {
-    setSearch(''); // Clear search when navigating
-  }, [location]);
-
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value);
-    onSearchChange(e.target.value);
-  };
-
-  const showSearchBar =
-    location.pathname === '/characters' ||
-    location.pathname === '/comics' ||
-    location.pathname === '/series';
 
   return (
     <nav className="navbar">

@@ -6,7 +6,7 @@ const initialFormState = {
   title: '',
   category: 'Characters',
   description: '',
-  file: null
+  url: '' // Replaced file with url
 };
 
 function SuggestionPage() {
@@ -51,7 +51,7 @@ function SuggestionPage() {
   const handleEdit = (index) => {
     setEditingIndex(index);
     const commentToEdit = comments[index];
-    setFormData({ ...commentToEdit, file: null }); // Assuming file handling is separate
+    setFormData({ ...commentToEdit}); // Assuming file handling is separate
   };
 
   const handleDelete = async (index) => {
@@ -68,7 +68,7 @@ function SuggestionPage() {
   return (
     <div>
       <div className="suggestion-main">
-        <div className="form-container">
+        <div className="">
           <FormComponent
             formData={formData}
             setFormData={setFormData}
@@ -82,7 +82,7 @@ function SuggestionPage() {
               <h2>Title: {comment.title}</h2>
               <p>Category: {comment.category}</p>
               <p>Your Idea:{comment.description}</p>
-              {comment.file && <p>File: {comment.file.name}</p>}
+              {comment.url && <p>URL: <a href={comment.url} target="_blank">{comment.url}</a></p>}
               <button className='buttons-box' onClick={() => handleEdit(index)}>Edit</button>
               <button className='buttons-box' onClick={() => handleDelete(index)}>Delete</button>
             </div>

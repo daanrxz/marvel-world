@@ -90,7 +90,7 @@ const handleBack = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p>No comics available for this character.</p>
+                    <p className="no-items">No comics available for this character.</p>
                 )}
             </div>
             <div className="series-details-div">
@@ -104,7 +104,7 @@ const handleBack = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p>No characters available for this character.</p>
+                    <p className="no-items">No characters available for this character.</p>
                 )}
             </div>
 

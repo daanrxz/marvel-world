@@ -2,10 +2,10 @@ import React from 'react';
 
 function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: files ? files[0] : value
+      [name]: value
     });
   };
 
@@ -40,10 +40,12 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
         required 
       />
       <input 
-        type="file" 
-        name="file" 
-        onChange={handleChange} 
-      />
+    type="url" 
+    name="url" 
+    placeholder="Enter URL" 
+    value={formData.url || ''} 
+    onChange={handleChange} 
+  />
        <button type="submit">{isEditing ? 'Edit' : 'Submit'}</button>
     </form>
   );

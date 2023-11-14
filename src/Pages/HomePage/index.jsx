@@ -31,8 +31,8 @@ function HomePage () {
                     <button className='homepage-buttons'>Series</button>
                 </Link>
             </div>
-            <div className='mute-button'>
-            <button onClick={toggleMute}>
+            <div className='mute-button-container'>
+            <button className="mute-button" onClick={toggleMute}>
                     {isMuted ? 'Unmute' : 'Mute'}
                 </button>
             </div>

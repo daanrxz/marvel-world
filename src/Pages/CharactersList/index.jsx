@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer';
 
 const API_URL = "https://gateway.marvel.com/v1/public";
 const API_KEY = "fd986a65b294a48abcc1a51232b02444";
@@ -72,13 +73,14 @@ function CharactersListPage() {
       ))}
     </div>
       <div className='buttons'>
-        <button className='buttons-box' onClick={() => setOffset(o => Math.max(0, o - LIMIT))} disabled={offset === 0}>
+        <button className='buttons-box' onClick={() => setOffset(o => o - LIMIT)} disabled={offset === 0}>
           Previous Page
         </button>
         <button className='buttons-box' onClick={() => setOffset(o => o + LIMIT)} disabled={characters.length < LIMIT}>
           Next Page
         </button>
       </div>
+      <div className='footer-div'><Footer/></div>
     </div>
   );
 }

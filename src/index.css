@@ -1,23 +1,22 @@
+
 a {
   font-weight: 200;
   text-decoration: inherit;
   color: red;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
-
 a:hover {
   color: #000000;
 }
-
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Bangers", cursive !important;
+  
+    
 }
-
 /* Navbar.css */
 .navbar {
   display: flex;
@@ -28,21 +27,18 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
-
 .navbar-logo {
   width: 100px;
   height: 50px;
   display: flex;
 }
-
 .navbar-links {
   display: flex;
   justify-content: right;
   align-items: center;
-  flex-grow: 1; 
-  margin-right: auto; 
+  flex-grow: 1;
+  margin-right: auto;
 }
-
 .navbar-link {
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -54,29 +50,26 @@ body {
   letter-spacing: 1px;
   font-size: 18px;
 }
-
 .navbar-link:hover, .navbar-link:focus {
   background-color: rgb(255, 255, 255);
   color: #020202;
   cursor: pointer;
 }
-
 /* _________________________________________________________ */
-
 /* HOMEPAGE DIVS */
 .main {
   background-size:cover;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
-
 video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .homepage-video {
   position: fixed;
   top: 0;
@@ -85,7 +78,6 @@ video {
   height: 100%;
   overflow: hidden;
 }
-
 .content {
   position: absolute;
   width: 100%;
@@ -101,7 +93,6 @@ video {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-
 .content p {
   margin-top: 0;
   background-color: rgb(0, 0, 0);
@@ -113,7 +104,6 @@ video {
   height: 100px;
   font-size: 90px;
 }
-
 .homepage-links {
   position: fixed;
   bottom: 0;
@@ -127,12 +117,24 @@ video {
   z-index: 2;
   align-items: center;
 }
-
-.mute-button {
-  margin-left: auto; /* Pushes the button to the right */
-  /* padding-left: 100px; Removed this as margin-left: auto is more effective */
+.mute-button-container {
+  margin-left: -200px;
+  margin-right: 20px;
 }
-
+.mute-button {
+  width: 150px;
+  height: 40px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-family: "Bangers", cursive !important;
+  font-size: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.mute-button:hover {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  cursor: pointer;
+}
 /* Additional styling to make sure the links and buttons inside .homepage-links are centered */
 .homepage-links > div:first-child {
   flex-grow: 1;
@@ -141,7 +143,6 @@ video {
   justify-content: center;
   align-items: center;
 }
-
 .homepage-buttons {
   width: 150px;
   height: 40px;
@@ -150,22 +151,13 @@ video {
   font-family: "Bangers", cursive !important;
   font-size: 25px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s;
-  
 }
-
 .homepage-buttons:hover {
   background-color: rgb(255, 255, 255);
   color: #000000;
   cursor: pointer;
-  transition: transform scale(1.1);
-  box-shadow: 1px 0px 45px -9px rgba(255,255,255,0.77);
-  -webkit-box-shadow: 1px 0px 45px -9px rgba(255,255,255,0.77);
-  -moz-box-shadow: 1px 0px 45px -9px rgba(255,255,255,0.77);
 }
-
 /* _________________________________________________________ */
-
 .main-div {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -176,7 +168,6 @@ video {
   align-items: center;
   margin-left: 60px;
 }
-
 .character-div {
   border: 2px solid black;
   position: relative;
@@ -192,7 +183,6 @@ video {
   margin-bottom: 20px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
-
 .character-div img {
   width: 100%;
   height: 100%;
@@ -201,13 +191,11 @@ video {
   top: 0;
   left: 0;
   z-index: 1;
-  transition: transform 0.3s; /* Add transition for smooth scaling */
+  transition: transform 0.3s;
 }
-
 .character-div:hover img {
-  transform: scale(1.1); /* Scale the image on hover */
+  transform: scale(1.1);
 }
-
 .character-div p {
   border-top: 2px solid black;
   position: absolute;
@@ -225,16 +213,23 @@ video {
   justify-content: center;
   font-style: italic;
   font-size: 16px;
+  transition: color 0.3s; /* Add transition for smooth color change */
 }
-
+.character-div:hover p {
+  color: red;
+}
 .footer-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #000000;
   height: 50px;
+  
 }
-
 .text-links-container {
   display: flex;
   flex-direction: column;
@@ -242,55 +237,41 @@ video {
   font-size: 10px;
   font-family: monospace;
 }
-
 .navigation-links a {
   margin-right: 30px;
 }
-
 .details-container {
   border: 1px solid rgb(255, 255, 255);
   padding: 50px 100px;
   display: flex;
   justify-content: center;
 }
-
 .details-container p {
   font-family: monospace;
 }
-
 .details-div {
   width: 500px;
   border-right: 4px solid #000000;
-  padding-right: 40px;
+  padding-right: 30px;
 }
-
 .details-container img {
   width: 300px;
   height: 300px;
   margin-right: 20px;
 }
-
 .comic-details-div {
   border-right: 4px solid #000000;
 }
-
 .comic-details-div h2 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.series-details-div {
-  padding-left: 0px;
-  padding-right: 40px;
-}
-
 .series-details-div h2 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -303,16 +284,16 @@ video {
   align-items: center;
   z-index: 1;
 }
-
 .loading-overlay img {
   width: 500px;
   height: 500px;
 }
-
 .App {
-  background-color: #ffffff;
-}
+  background-color: #FFFFFF;
 
+
+
+}
 .input-search {
   margin-top: 20px;
   display: flex;
@@ -320,7 +301,6 @@ video {
   align-items: center;
   width: 100%;
 }
-
 .input-box {
   padding: 10px;
   border-radius: 5px;
@@ -334,17 +314,15 @@ video {
   transform: skew(-15deg);
   margin-left: 10px;
 }
-
 .buttons {
   display: flex;
   justify-content: center;
 }
-
 .buttons-box {
   width: 150px;
   height: 40px;
   background-color: #000000;
-  color: #ffffff;
+  color: #FFFFFF;
   margin: 10px;
   border: none;
   font-family: "Bangers", cursive !important;
@@ -353,53 +331,47 @@ video {
   transition: transform 0.3s;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
-
 .buttons-box:hover {
   border: 1px solid black;
   background-color: rgb(255, 255, 255);
   color: #000000;
   transform: scale(1.1);
 }
-
 .search-title {
   font-size: 18px;
 }
-
 .suggestion-main {
   background-color: hsl(0, 0%, 100%);
   display:flex;
   justify-content: center;
   align-items: center;
 }
-
 .comment-box {
-  background-color: rgba(255, 255, 255, 0.6);
   display: block;
   justify-content: center;
   align-items: center;
   width: fit-content;
-  padding-left: 20px;
-  border-left: 1px solid black;
+  padding-left: 40px;
 }
-
 .form-container {
-  width: 300px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-rows: auto; /* Ensures the form elements are well-organized */
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  background-color: #ff0000; /* Bright red, typical of Marvel */
-  color: #ffffff; /* White text for contrast */
-  padding: 20px;
+  background-color: #FF0000; /* Bright red, typical of Marvel */
+  color: #FFFFFF; /* White text for contrast */
   border: 2px solid #000000; /* Black border for a comic book feel */
   box-shadow: 0px 0px 10px #000000; /* Adding a shadow for depth */
   font-family: 'Bangers', cursive; /* A font that resembles comic book lettering */
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 40px;
 }
-
 .form-container input, .form-container select, .form-container textarea {
-  background-color: #ffffff; /* White background for the fields */
+  background-color: #FFFFFF; /* White background for the fields */
   color: #000000; /* Black text */
   border: 1px solid #000000; /* Black border for each field */
   padding: 10px;
@@ -408,10 +380,9 @@ video {
   box-sizing: border-box;
   font-family: 'Arial', sans-serif; /* Clear, readable font for input */
 }
-
 .form-container button {
   background-color: #000000; /* Black button */
-  color: #ffffff; /* White text */
+  color: #FFFFFF; /* White text */
   border: none;
   padding: 10px 20px;
   text-transform: uppercase; /* Makes the button text uppercase */
@@ -419,32 +390,38 @@ video {
   cursor: pointer; /* Changes the cursor to indicate it's clickable */
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
-
 .form-container button:hover {
-  background-color: #ff0000; /* Red color on hover */
+  background-color: #FF0000; /* Red color on hover */
 }
-
 /* Adding some custom style for labels if needed */
 .form-container label {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
 }
-
 /* Ensure the elements within the form are properly aligned */
 .form-container * {
   box-sizing: border-box;
 }
-
 ul {
   list-style: none;
   font-family: monospace;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-
 .footer-anchors {
   color: red;
 }
-
 .footer-anchors:hover {
-  color: #ffffff;
+  color: #FFFFFF;
+}
+.no-items {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.footer-div {
+
+  position:absolute;
+  width:100%
 }

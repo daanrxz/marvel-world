@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
-
+import Footer from '../Footer';
 const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironman_ldhhscp2.gif';
 
 const API_URL = "https://gateway.marvel.com/v1/public";
@@ -28,21 +28,22 @@ function CharacterDetailsPage() {
     }
 
     useEffect(() => {
-        setLoading(true); // Set loading to true when starting a new fetch
+        setLoading(true); // set loading to true when starting a new fetch
 
         // Fetch character details
-        axios.get(`${API_URL}/characters/${characterId}`, {
-            params: { ts: 1, apikey: API_KEY, hash: HASH }
-        })
-        .then((response) => {
-            setCharacter(response.data.data.results[0]);
-        })
-        .catch((error) => {
-            console.error("Error fetching character data:", error);
-        })
-        .finally(() => {
-            setLoading(false); // Set loading to false after the fetch completes
-        });
+        axios
+            .get(`${API_URL}/characters/${characterId}`, {
+                params: { ts: 1, apikey: API_KEY, hash: HASH }
+            })
+            .then((response) => {
+                setCharacter(response.data.data.results[0]);
+            })
+            .catch((error) => {
+                console.error("Error fetching character data:", error);
+            })
+            .finally(() => {
+                setLoading(false); // Set loading to false after the fetch completes
+            });
 
         // Fetch character comics
         axios
@@ -100,7 +101,7 @@ function CharacterDetailsPage() {
                         ))}
                     </ul>
                 ) : (
-                    <p>No comics available for this character.</p>
+                    <p className="no-items">No comics available for this {character.name}.</p>
                 )}
             </div>
             <div className="series-details-div">
@@ -114,13 +115,14 @@ function CharacterDetailsPage() {
                         ))}
                     </ul>
                 ) : (
-                    <p>No series available for this character.</p>
+                    <p className="no-items">No series available for {character.name}.</p>
                 )}
             </div>
              </div>  
              <div className="buttons">
                 <button className='buttons-box' onClick={handleBack}>Back</button>  
-             </div>   
+             </div>  
+             <div><Footer/></div> 
         </div>
     );
 }

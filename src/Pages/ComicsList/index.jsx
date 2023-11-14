@@ -72,7 +72,7 @@ function ComicsListPage() {
         )}
       </div>
       <div className='buttons'>
-        <button className='buttons-box' onClick={() => setOffset(o => Math.max(0, o - LIMIT))} disabled={offset === 0}>
+        <button className='buttons-box' onClick={() => setOffset(o => o - LIMIT)} disabled={offset === 0}>
           Previous Page
         </button>
         <button className='buttons-box' onClick={() => setOffset(o => o + LIMIT)} disabled={comics.length < LIMIT}>
