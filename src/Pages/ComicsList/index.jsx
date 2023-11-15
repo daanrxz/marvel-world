@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer';
 
 const API_URL = "https://gateway.marvel.com/v1/public";
 const API_KEY = "fd986a65b294a48abcc1a51232b02444";
@@ -79,6 +80,7 @@ function ComicsListPage() {
           Next Page
         </button>
       </div>
+      <div className='footer-div'><Footer/></div>
     </div>
   );
 }

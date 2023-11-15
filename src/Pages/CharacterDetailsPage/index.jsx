@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../Footer';
+
 const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironman_ldhhscp2.gif';
 
 const API_URL = "https://gateway.marvel.com/v1/public";
@@ -79,7 +80,11 @@ function CharacterDetailsPage() {
     }
 
     if (!character) {
-        return <p>Loading character details...</p>;
+        return (
+        <div className="loading-overlay">
+        <img src={loadingGif} alt="Loading..." />
+        </div>
+        );
     }
 
     return (
@@ -122,7 +127,7 @@ function CharacterDetailsPage() {
              <div className="buttons">
                 <button className='buttons-box' onClick={handleBack}>Back</button>  
              </div>  
-             <div><Footer/></div> 
+             <div className='footer-div'><Footer/></div>
         </div>
     );
 }

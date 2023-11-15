@@ -2,7 +2,9 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
+import Footer from '../Footer';
 
+const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironman_ldhhscp2.gif';
 
 const API_URL = "https://gateway.marvel.com/v1/public";
 const API_KEY = "fd986a65b294a48abcc1a51232b02444";
@@ -12,10 +14,11 @@ function SerieDetailsPage() {
     const [serie, setSerie] = useState(null); 
     const [comics, setComics] = useState ([]);
     const [characters, setCharacters] = useState([]);
+    const [loading, setLoading] = useState(true); // Added loading state
     const { serieId } = useParams();
     const navigate = useNavigate();
-const location = useLocation();
-const fromCharacter = location.state?.fromCharacter;
+    const location = useLocation();
+    const fromCharacter = location.state?.fromCharacter;
 
 const handleBack = () => {
   if (fromCharacter) {
@@ -25,6 +28,7 @@ const handleBack = () => {
   }
     
     useEffect(() => {
+        setLoading(true);
         axios.get(`${API_URL}/series/${serieId}`, {
             params: { ts: 1, apikey: API_KEY, hash: HASH }
         })
@@ -35,6 +39,9 @@ const handleBack = () => {
         })
         .catch((error) => {
             console.error("Error fetching character data:", error);
+        })
+        .finally(() => {
+            setLoading(false); // Set loading to false after the fetch completes
         });
 
 
@@ -66,7 +73,11 @@ const handleBack = () => {
     }, [serieId]); 
     
     if (!serie) {
-        return <p>Loading character details...</p>;
+        return (
+            <div className="loading-overlay">
+                <img src={loadingGif} alt="Loading..." />
+            </div>
+        );
     }
 
     return (
@@ -84,7 +95,7 @@ const handleBack = () => {
                 {comics.length ? (
                     <ul>
                         {comics.map((comic) => (
-                            <li key={comic.id}>
+                            <li className="character-comics-list" key={comic.id}>
                                 <Link to={`/comics/${comic.id}`} state={{ fromSeries: serieId }}>{comic.title}</Link>
                             </li>
                         ))}
@@ -114,6 +125,7 @@ const handleBack = () => {
         <div className="buttons">
                 <button className='buttons-box' onClick={handleBack}>Back</button>  
             </div>
+            <div className='footer-div'><Footer/></div>
         </div>
     );
 }

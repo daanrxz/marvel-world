@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FormComponent from '../FormComponent';
 import axios from 'axios';
+import Footer from '../Footer';
 
 const initialFormState = {
   title: '',
@@ -30,7 +31,7 @@ function SuggestionPage() {
   async function handleFormSubmit(e) {
     e.preventDefault();
     try {
-      if (editingIndex) {
+      if (editingIndex !== null) {
         // Edit existing comment
         const response = await axios.put(`http://localhost:5179/comments/${comments[editingIndex].id}`, formData);
         const updatedComments = [...comments];
@@ -58,7 +59,7 @@ function SuggestionPage() {
     const commentToDelete = comments[index];
     try {
       await axios.delete(`http://localhost:5179/comments/${commentToDelete.id}`);
-      const updatedComments = comments.filter((_, i) => i !== index);
+      const updatedComments = comments.filter((comment, i) => i !== index);
       setComments(updatedComments);
     } catch (error) {
       console.error('Error deleting comment:', error);
@@ -67,8 +68,12 @@ function SuggestionPage() {
 
   return (
     <div>
+      <div className='header-idea'>
+         <h2 className='suggestion-page-title'>Have an idea?</h2>
+          <p>Help us with new ideias for our Universe</p>
+      </div>
       <div className="suggestion-main">
-        <div className="">
+        <div className="form-box">
           <FormComponent
             formData={formData}
             setFormData={setFormData}
@@ -76,19 +81,25 @@ function SuggestionPage() {
             isEditing={editingIndex !== null}
           />
         </div>
-        <div className="display-container">
+        <div className="display-container grid-container">
           {comments.map((comment, index) => (
-            <div className='comment-box' key={index}>
-              <h2>Title: {comment.title}</h2>
-              <p>Category: {comment.category}</p>
-              <p>Your Idea:{comment.description}</p>
-              {comment.url && <p>URL: <a href={comment.url} target="_blank">{comment.url}</a></p>}
-              <button className='buttons-box' onClick={() => handleEdit(index)}>Edit</button>
-              <button className='buttons-box' onClick={() => handleDelete(index)}>Delete</button>
+            <div className='comment-box grid-item' key={index}>
+              <h2><span style={{ color: "#ECA800" }}>Title: </span> {comment.title}</h2>
+              <p><span style={{ color: "#ECA800" }}>Category: </span>{comment.category}</p>
+              <p><span style={{ color: "#ECA800" }}>Your Idea: </span>{comment.description}</p>
+              <p>
+                <span style={{ color: "#ECA800" }}>URL: </span> 
+                <a className="comment-link" href={comment.url} target="_blank" rel="noopener noreferrer">{comment.url}</a>
+              </p>
+              <div className='buttons-box-container'>
+              <button className='marvel-button' onClick={() => handleEdit(index)}>Edit</button>
+              <button className='marvel-button' onClick={() => handleDelete(index)}>Delete</button>
+              </div>
             </div>
           ))}
         </div>
       </div>
+      <div className='footer-div'><Footer/></div> 
     </div>
   );
 }

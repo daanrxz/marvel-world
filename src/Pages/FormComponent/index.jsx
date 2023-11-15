@@ -15,9 +15,10 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
   };
 
   return (
+    <div>
     <form className='form-container' onSubmit={handleSubmit}>
       <div>
-        <h1>Have an idea? Submit here.</h1>
+        <h2>Please submit here :</h2>
       </div>
       <input 
         type="text"
@@ -27,7 +28,7 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
         onChange={handleChange} 
         required
       />
-      <select name="category" value={formData.category} onChange={handleChange}>
+      <select name="category" value={formData.category} onChange={handleChange} className='select-button'>
         <option value="Characters">Characters</option>
         <option value="Comics">Comics</option>
         <option value="Series">Series</option>
@@ -48,6 +49,7 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
   />
        <button type="submit">{isEditing ? 'Edit' : 'Submit'}</button>
     </form>
+    </div>
   );
 }
 
