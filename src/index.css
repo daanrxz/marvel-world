@@ -448,7 +448,7 @@ video {
 }
 
 .header-idea {
-  background:url("public/erik-mclean-8SeJUmfahu0-unsplash.jpg");
+  background:url("/erik-mclean-8SeJUmfahu0-unsplash.jpg");
   height: 500px;
   background-size: cover;
   display: flex;
