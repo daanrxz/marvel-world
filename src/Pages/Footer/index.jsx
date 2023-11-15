@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer-container">
         <div className="logo-container">
           <Link to="/" className="navbar-logo-link">
-          <img src="/public/marvel-logo-black-and-white.png" alt="Logo" className="navbar-logo" />
+          <img src="/marvel-logo-black-and-white.png" alt="Logo" className="navbar-logo" />
           </Link>
         </div>
         <div className="text-links-container">
