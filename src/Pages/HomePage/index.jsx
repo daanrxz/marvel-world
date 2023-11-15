@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import backgroundVideo from "../../assets/backgroundVideo.mp4";
 
 function HomePage () {
-    const [isMuted, setIsMuted] = useState(true); // assuming default is muted
+    const [isMuted, setIsMuted] = useState(true);
     const videoRef = useRef(null);
 
     const toggleMute = () => {

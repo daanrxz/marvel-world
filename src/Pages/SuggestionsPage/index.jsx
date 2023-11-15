@@ -7,7 +7,7 @@ const initialFormState = {
   title: '',
   category: 'Characters',
   description: '',
-  url: '' // Replaced file with url
+  url: ''
 };
 
 function SuggestionPage() {
@@ -18,7 +18,7 @@ function SuggestionPage() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get('http://localhost:5179/comments');
+        const response = await axios.get('https://marvel-world-backend.onrender.com/comments');
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching comments:', error);
@@ -33,14 +33,14 @@ function SuggestionPage() {
     try {
       if (editingIndex !== null) {
         // Edit existing comment
-        const response = await axios.put(`http://localhost:5179/comments/${comments[editingIndex].id}`, formData);
+        const response = await axios.put(`https://marvel-world-backend.onrender.com/comments/${comments[editingIndex].id}`, formData);
         const updatedComments = [...comments];
         updatedComments[editingIndex] = response.data;
         setComments(updatedComments);
         setEditingIndex(null);
       } else {
         // Add new comment
-        const response = await axios.post("http://localhost:5179/comments", formData);
+        const response = await axios.post("https://marvel-world-backend.onrender.com/comments", formData);
         setComments([...comments, response.data]);
       }
     } catch (error) {
@@ -52,13 +52,13 @@ function SuggestionPage() {
   const handleEdit = (index) => {
     setEditingIndex(index);
     const commentToEdit = comments[index];
-    setFormData({ ...commentToEdit}); // Assuming file handling is separate
+    setFormData({ ...commentToEdit});
   };
 
   const handleDelete = async (index) => {
     const commentToDelete = comments[index];
     try {
-      await axios.delete(`http://localhost:5179/comments/${commentToDelete.id}`);
+      await axios.delete(`https://marvel-world-backend.onrender.com/comments/${commentToDelete.id}`);
       const updatedComments = comments.filter((comment, i) => i !== index);
       setComments(updatedComments);
     } catch (error) {

@@ -1,5 +1,6 @@
-html{
+html {
   min-height: 100%;
+  user-select: none;
 }
 
 a {
@@ -9,17 +10,18 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 a:hover {
   color: #ff0000;
 }
+
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
   font-family: "Bangers", cursive !important;
-  
-    
 }
+
 /* Navbar.css */
 .navbar {
   display: flex;
@@ -30,11 +32,13 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+
 .navbar-logo {
   width: 100px;
   height: 50px;
   display: flex;
 }
+
 .navbar-links {
   display: flex;
   justify-content: right;
@@ -42,6 +46,7 @@ body {
   flex-grow: 1;
   margin-right: auto;
 }
+
 .navbar-link {
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -53,13 +58,15 @@ body {
   letter-spacing: 1px;
   font-size: 18px;
 }
+
 .navbar-link:hover, .navbar-link:focus {
   background-color: rgb(255, 255, 255);
   color: #020202;
   cursor: pointer;
 }
-/* _________________________________________________________ */
-/* HOMEPAGE DIVS */
+
+/* ________________HOMEPAGE________________ */
+
 .main {
   background-size:cover;
   display: flex;
@@ -68,11 +75,13 @@ body {
   min-height: 100vh;
   padding-bottom: 50px;
 }
+
 video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .homepage-video {
   position: fixed;
   top: 0;
@@ -81,6 +90,7 @@ video {
   height: 100%;
   overflow: hidden;
 }
+
 .content {
   position: absolute;
   width: 100%;
@@ -96,6 +106,7 @@ video {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+
 .content p {
   margin-top: 0;
   background-color: rgb(0, 0, 0);
@@ -107,6 +118,7 @@ video {
   height: 100px;
   font-size: 90px;
 }
+
 .homepage-links {
   position: fixed;
   bottom: 0;
@@ -121,10 +133,12 @@ video {
   align-items: center;
   padding-right: 100px;
 }
+
 .mute-button-container {
   margin-left: -200px;
   margin-right: 0px;
 }
+
 .mute-button {
   width: 80px;
   height: 30px;
@@ -134,12 +148,14 @@ video {
   font-size: 25px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
+
 .mute-button:hover {
   background-color: rgb(0, 0, 0);
   color: #ffffff;
   border: 1px solid #ffffff;
   cursor: pointer;
 }
+
 /* Additional styling to make sure the links and buttons inside .homepage-links are centered */
 .homepage-links > div:first-child {
   flex-grow: 1;
@@ -148,6 +164,7 @@ video {
   justify-content: center;
   align-items: center;
 }
+
 .homepage-buttons {
   width: 150px;
   height: 40px;
@@ -157,12 +174,15 @@ video {
   font-size: 25px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
+
 .homepage-buttons:hover {
   background-color: rgb(255, 255, 255);
   color: #000000;
   cursor: pointer;
 }
+
 /* _________________________________________________________ */
+
 .main-div {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -173,6 +193,7 @@ video {
   align-items: center;
   margin-left: 60px;
 }
+
 .character-div {
   border: 2px solid black;
   position: relative;
@@ -188,6 +209,7 @@ video {
   margin-bottom: 20px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
+
 .character-div img {
   width: 100%;
   height: 100%;
@@ -198,9 +220,11 @@ video {
   z-index: 1;
   transition: transform 0.3s;
 }
+
 .character-div:hover img {
   transform: scale(1.1);
 }
+
 .character-div p {
   border-top: 2px solid black;
   position: absolute;
@@ -216,10 +240,10 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 16px;
   transition: color 0.3s; /* Add transition for smooth color change */
 }
+
 .character-div:hover p {
   color: rgb(255, 255, 255);
   background-color: #000000;
@@ -249,49 +273,54 @@ video {
   font-size: 10px;
   font-family: monospace;
 }
+
 .navigation-links a {
   margin-right: 30px;
 }
+
 .details-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #000000e6; /* Black background */
-  color: #ffffff; /* White text for contrast */
-  border: 3px solid #030303; /* Bold red border, typical for Marvel */
+  background-color: #000000e6;
+  color: #ffffff;
+  border: 3px solid #030303;
   padding: 20px;
   margin: 20px;
-  box-shadow: 0px 0px 10px #000000; /* Red glow for dramatic effect */
+  box-shadow: 0px 0px 10px #000000;
+  min-height: 70vh;
 }
+
 .details-div, .comic-details-div, .series-details-div {
   padding: 10px;
   margin: 10px;
   flex: 1;
-  min-width: 300px; /* Minimum width for responsiveness */
-
+  min-width: 300px;
 }
 
 .details-div img {
   max-width: 100%;
   height: auto;
-  border: 2px solid #ffffff; /* White border around the image */
+  border: 2px solid #ffffff;
 }
+
 .details-div h1, .comic-details-div h2, .series-details-div h2 {
   font-family: 'Bangers', cursive;
   text-transform: uppercase;
-  color: #ffffff; /* Bold red color for titles */
+  color: #ffffff;
   margin-bottom: 10px;
   font-size: 30px;
 }
+
 .character-comics-list a, .series-details-div ul a {
   color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
-  display: flex;
   font-size: 14px;
 }
+
 .character-comics-list a:hover, .series-details-div ul a:hover {
-  color: #ff0000; /* Red color on hover for links */
+  color: #ff0000;
 }
 
 .no-items {
@@ -303,29 +332,36 @@ video {
 .details-container p {
   font-family: monospace;
 }
+
 .details-div {
   width: 500px;
   border-right: 4px solid #fcfcfc;
-  padding-right: 30px;
+  padding-right: 20px;
 }
+
 .details-container img {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   margin-right: 20px;
 }
+
 .comic-details-div {
   border-right: 4px solid #ffffff;
+  
 }
+
 .comic-details-div h2 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .series-details-div h2 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -338,14 +374,16 @@ video {
   align-items: center;
   z-index: 1;
 }
+
 .loading-overlay img {
   width: 500px;
   height: 500px;
 }
+
 .App {
   background-color: #FFFFFF;
-
 }
+
 .input-search {
   margin-top: 20px;
   display: flex;
@@ -353,6 +391,7 @@ video {
   align-items: center;
   width: 100%;
 }
+
 .input-box {
   padding: 10px;
   border-radius: 5px;
@@ -386,12 +425,14 @@ video {
   transition: transform 0.3s;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
+
 .buttons-box:hover {
   border: 1px solid black;
   background-color: rgb(255, 255, 255);
   color: #000000;
   transform: scale(1.1);
 }
+
 .search-title {
   font-size: 18px;
 }
@@ -400,7 +441,6 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  user-select: none;
   text-shadow: 0px 0px 32px rgba(255,255,255,0.6);
   border-bottom: 15px solid rgb(0, 0, 0);
   font-size: 15vh;
@@ -427,10 +467,9 @@ video {
 .suggestion-main {
   background-color: hsl(0, 0%, 100%);
   display: flex;
-  justify-content: space-around; /* Adjust for space between form and comments */
-  align-items: center; /* Align items to the start of the container */
-  padding: 20px; /* Add padding for spacing */
-  
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px; 
 }
 
 /* COMMENT BOX  */
@@ -466,7 +505,7 @@ video {
 .comment-box h2 {
   color: #000000; 
   text-transform: uppercase; 
-  border-bottom: 1px solid #010101; 
+  border-bottom: 3px dotted #ed0404; 
   padding-bottom: 15px;
   margin-bottom: 10px;
 }
@@ -479,7 +518,8 @@ video {
 .buttons-box-container {
   display: flex;
   }
-  /* ____________________________________________________ */
+
+/* ____________________________________________________ */
 
 .form-container {
   width: 40vh;
@@ -498,62 +538,68 @@ video {
   margin-top: 35px;
   padding: 40px;
 }
+
 .form-container input, .form-container select, .form-container textarea {
-  background-color: #FFFFFF; /* White background for the fields */
-  color: #000000; /* Black text */
-  border: 1px solid #000000; /* Black border for each field */
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #000000;
   padding: 10px;
-  margin: 10px 0; /* Spacing between fields */
-  width: 100%; /* Making sure it doesn't overflow the container */
+  margin: 10px 0;
+  width: 100%;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif; /* Clear, readable font for input */
+  font-family: 'Arial', sans-serif;
 }
+
 .form-container button {
-  background-color: #ff0000; /* Black button */
-  color: #ffffff; /* White text */
+  background-color: #ff0000;
+  color: #ffffff;
   border: none;
   padding: 10px 20px;
-  text-transform: uppercase; /* Makes the button text uppercase */
+  text-transform: uppercase;
   font-weight: bold;
-  cursor: pointer; /* Changes the cursor to indicate it's clickable */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
 .form-container button:hover {
-  background-color: #ffffff; /* Red color on hover */
+  background-color: #ffffff;
   color: #000000;
 }
-/* Adding some custom style for labels if needed */
+
 .form-container label {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
 }
-/* Ensure the elements within the form are properly aligned */
+
 .form-container * {
   box-sizing: border-box;
 }
+
 .form-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 ul {
   list-style: none;
   font-family: monospace;
   padding-left: 20px;
   padding-right: 20px;
 }
+
 .footer-anchors {
   color: rgb(255, 255, 255);
 }
+
 .footer-anchors:hover {
   color: #ff0000;
 }
 
-
 .footer-div {
   position:absolute;
-  width:100%
+  width:100%;
 }
 
 .grid-container {
@@ -564,22 +610,22 @@ ul {
 }
 
 .marvel-button {
-  background-color: #f90008; /* Bold red, typical for Marvel */
-  color: #000000; /* White text for contrast */
-  border: 2px solid #000000; /* Black border for a comic book feel */
-  font-family: 'Bangers', cursive; /* A font that resembles comic book lettering */
-  font-size: 18px; /* A larger font size for impact */
-  padding: 10px 20px; /* Adequate padding for button size */
-  text-transform: uppercase; /* Makes the button text uppercase */
-  cursor: pointer; /* Changes the cursor to indicate it's clickable */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
-  box-shadow: 3px 3px 0px #000000; /* Shadow for a 3D effect */
-  margin: 5px; /* Margin around buttons */
+  background-color: #f90008;
+  color: #000000;
+  border: 2px solid #000000;
+  font-family: 'Bangers', cursive;
+  font-size: 18px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 3px 3px 0px #000000;
+  margin: 5px;
 }
 
 .marvel-button:hover, .marvel-button:focus {
-  transform: translateY(-2px); /* Slight move up on hover/focus */
-  box-shadow: 5px 5px 0px #000000; /* Larger shadow on hover/focus */
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0px #000000;
   background-color: #ff0000;
   color: #000000;
 }

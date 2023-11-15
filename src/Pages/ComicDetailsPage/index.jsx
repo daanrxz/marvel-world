@@ -17,7 +17,7 @@ function ComicDetailsPage() {
     const navigate = useNavigate();
     const location = useLocation();
     const fromSeries = location.state?.fromSeries;
-    const [loading, setLoading] = useState(true); // Added loading state
+    const [loading, setLoading] = useState(true);
   
     const handleBack = () => {
       if (fromSeries) {
@@ -41,7 +41,7 @@ function ComicDetailsPage() {
             console.error("Error fetching comic data:", error)
         })
         .finally(() => {
-            setLoading(false); // Set loading to false after the fetch completes
+            setLoading(false);
         });
 
         //Fetch comic character

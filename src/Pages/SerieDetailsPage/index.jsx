@@ -14,7 +14,7 @@ function SerieDetailsPage() {
     const [serie, setSerie] = useState(null); 
     const [comics, setComics] = useState ([]);
     const [characters, setCharacters] = useState([]);
-    const [loading, setLoading] = useState(true); // Added loading state
+    const [loading, setLoading] = useState(true);
     const { serieId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
@@ -41,7 +41,7 @@ const handleBack = () => {
             console.error("Error fetching character data:", error);
         })
         .finally(() => {
-            setLoading(false); // Set loading to false after the fetch completes
+            setLoading(false); 
         });
 
 

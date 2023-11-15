@@ -18,9 +18,7 @@ function App() {
   const [showFooter, setShowFooter] = useState(true);
 
   const handleSearchChange = (searchValue) => {
-    // Handle the search change logic here
     console.log('Search value in App component:', searchValue);
-    // You can update some state or perform other actions based on the search value
   };
 
   useEffect(() => {
@@ -42,7 +40,6 @@ function App() {
         <Route path='/series/:serieId' element={<SerieDetailsPage />} />
         <Route path='/suggestions' element={<SuggestionPage />} />
       </Routes>
-      {/* {showFooter && location.pathname !== "/" && <Footer />} */}
     </div>
   );
 }

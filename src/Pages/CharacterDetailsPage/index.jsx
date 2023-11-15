@@ -14,7 +14,7 @@ function CharacterDetailsPage() {
     const [character, setCharacter] = useState(null);
     const [comics, setComics] = useState([]);
     const [series, setSeries] = useState([]);
-    const [loading, setLoading] = useState(true); // Added loading state
+    const [loading, setLoading] = useState(true);
     const { characterId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
@@ -29,7 +29,7 @@ function CharacterDetailsPage() {
     }
 
     useEffect(() => {
-        setLoading(true); // set loading to true when starting a new fetch
+        setLoading(true);
 
         // Fetch character details
         axios
@@ -43,7 +43,7 @@ function CharacterDetailsPage() {
                 console.error("Error fetching character data:", error);
             })
             .finally(() => {
-                setLoading(false); // Set loading to false after the fetch completes
+                setLoading(false);
             });
 
         // Fetch character comics
@@ -69,7 +69,7 @@ function CharacterDetailsPage() {
             .catch((error) => {
             console.error("Error fetching character series:", error);
             });
-    }, [characterId]); //only when characterId changes
+    }, [characterId]);
     
     if (loading) {
         return (
