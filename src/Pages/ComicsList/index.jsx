@@ -27,7 +27,7 @@ function ComicsListPage() {
     };
 
     axios.get(`${API_URL}/comics`, { params })
-      .then(({ data: comicsData }) => {
+      .then(({data: comicsData}) => {
         setComics(comicsData.data.results);
         setLoading(false);
       })
