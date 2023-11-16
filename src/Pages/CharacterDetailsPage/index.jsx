@@ -31,13 +31,13 @@ function CharacterDetailsPage() {
     useEffect(() => {
         setLoading(true);
 
-        // Fetch character details
+        // Fetch Character details
         axios
             .get(`${API_URL}/characters/${characterId}`, {
                 params: { ts: 1, apikey: API_KEY, hash: HASH }
             })
             .then((response) => {
-                setCharacter(response.data.data.results[0]);
+                setCharacter(response.charsData.data.results[0]);
             })
             .catch((error) => {
                 console.error("Error fetching character data:", error);
@@ -46,7 +46,7 @@ function CharacterDetailsPage() {
                 setLoading(false);
             });
 
-        // Fetch character comics
+        // Fetch Character comics
         axios
             .get(`${API_URL}/characters/${characterId}/comics`, {
                 params: { ts: 1, apikey: API_KEY, hash: HASH }
