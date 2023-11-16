@@ -23,7 +23,9 @@ function SeriesListPage() {
       hash: HASH,
       limit: LIMIT,
       offset,
-      ...(search && { titleStartsWith: search })
+      ...(search && { titleStartsWith: search }),
+      // Conditionally set the limit only if there is no search
+    ...(!search && { limit: LIMIT }),
     };
 
     axios.get(`${API_URL}/series`, { params })
@@ -72,12 +74,24 @@ function SeriesListPage() {
         )}
       </div>
       <div className='buttons'>
-      <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset - LIMIT)} disabled={offset === 0}>
-          Previous Page
-        </button>
-        <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset + LIMIT)} disabled={series.length < LIMIT}>
-          Next Page
-        </button>
+      {!search && (
+    <>
+      <button 
+        className='buttons-box' 
+        onClick={() => setOffset(currentOffset => currentOffset - LIMIT)} 
+        disabled={offset === 0}
+      >
+        Previous Page
+      </button>
+      <button 
+        className='buttons-box' 
+        onClick={() => setOffset(currentOffset => currentOffset + LIMIT)} 
+        disabled={characters.length < LIMIT}
+      >
+        Next Page
+      </button>
+    </>
+  )}
       </div>
       <div className='footer-div'><Footer/></div> 
     </div>

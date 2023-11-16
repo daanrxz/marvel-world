@@ -27,7 +27,9 @@ function ComicsListPage() {
       offset,/* offset as a parameter */
       /* The titleStartsWith only adds params if search is true */
       /* ... INCLUDES ALL THE PROPERTIES OF AN OBJECT INSIDE ANOTHER OBJECT */
-      ...(search && { titleStartsWith: search })
+      ...(search && { titleStartsWith: search }),
+      // Conditionally set the limit only if there is no search
+    ...(!search && { limit: LIMIT }),
     };
     /* GIVES US THE COMICS DATA */
     axios.get(`${API_URL}/comics`, { params }) /* NEED THE PARAMS OF THE KEY */
@@ -45,7 +47,7 @@ function ComicsListPage() {
     setOffset(0);
   }, [search]); /* RESETS THE OFFSET TO 0 EACH TIME SEARCH CHANGES */
 
-  
+
   return (
     <div>
       <div className='input-search'>
@@ -82,12 +84,24 @@ function ComicsListPage() {
         )}
       </div>
       <div className='buttons'>
-      <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset - LIMIT)} disabled={offset === 0}>
-          Previous Page
-        </button>
-        <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset + LIMIT)} disabled={comics.length < LIMIT}>
-          Next Page
-        </button>
+      {!search && (
+    <>
+      <button 
+        className='buttons-box' 
+        onClick={() => setOffset(currentOffset => currentOffset - LIMIT)} 
+        disabled={offset === 0}
+      >
+        Previous Page
+      </button>
+      <button 
+        className='buttons-box' 
+        onClick={() => setOffset(currentOffset => currentOffset + LIMIT)} 
+        disabled={characters.length < LIMIT}
+      >
+        Next Page
+      </button>
+    </>
+  )}
       </div>
       <div className='footer-div'><Footer/></div>
     </div>

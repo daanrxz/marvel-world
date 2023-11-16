@@ -27,7 +27,9 @@ function CharactersListPage() {
       offset, /* offset as a parameter */
       /* The nameStartsWith only adds params if search is true */
       /* ... INCLUDES ALL THE PROPERTIES OF AN OBJECT INSIDE ANOTHER OBJECT */
-      ...(search && { nameStartsWith: search })
+      ...(search && { nameStartsWith: search }),
+      // Conditionally set the limit only if there is no search
+    ...(!search && { limit: LIMIT }),
     };
       /* GIVES US THE CHARACTERS DATA */
     axios.get(`${API_URL}/characters`, { params }) /* NEED THE PARAMS OF THE KEY */
@@ -77,7 +79,7 @@ function CharactersListPage() {
       ))}
     </div>
               {/* PREVIOUS AND NEXT PAGE */}
-              <div className='buttons'>
+  <div className='buttons'>
   {!search && (
     <>
       <button 
