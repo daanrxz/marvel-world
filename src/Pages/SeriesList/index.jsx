@@ -86,7 +86,7 @@ function SeriesListPage() {
       <button 
         className='buttons-box' 
         onClick={() => setOffset(currentOffset => currentOffset + LIMIT)} 
-        disabled={characters.length < LIMIT}
+        disabled={series.length < LIMIT}
       >
         Next Page
       </button>
