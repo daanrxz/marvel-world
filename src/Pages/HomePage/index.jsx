@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import backgroundVideo from "../../assets/backgroundVideo.mp4";
 
 function HomePage () {
+
     const [isMuted, setIsMuted] = useState(true);
     const videoRef = useRef(null);
-
+        /* MUTE OPTION */
     const toggleMute = () => {
         setIsMuted(!isMuted);
         if (videoRef.current) {
@@ -14,11 +15,15 @@ function HomePage () {
     };
 
     return (
+        /* BACKGROUND VIDEO */
       <div className='homepage-video'>
         <video ref={videoRef} src={backgroundVideo} autoPlay loop muted={isMuted} />
         <div className="content">
             <p>Marvel Universe</p>
         </div>
+
+        {/* HOMEPAGE BUTTONS LINKING TO EACH PAGE */}
+
         <div className='homepage-links'>
             <div>
                 <Link to={"/characters"}>
@@ -31,6 +36,9 @@ function HomePage () {
                     <button className='homepage-buttons'>Series</button>
                 </Link>
             </div>
+
+            {/* MUTE BUTTON */}
+
             <div className='mute-button-container'>
             <button className="mute-button" onClick={toggleMute}>
                     {isMuted ? 'Unmute' : 'Mute'}

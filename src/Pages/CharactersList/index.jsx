@@ -2,19 +2,21 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer';
-
+  /* API AUTH */
 const API_URL = "https://gateway.marvel.com/v1/public";
 const API_KEY = "fd986a65b294a48abcc1a51232b02444";
 const HASH = "55660d0ce5a27d43b54fdac1c38ba2e3";
+  /* LIMIT OF DATA */
 const LIMIT = 20;
-
+  /* LOADING GIF */
 const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironman_ldhhscp2.gif';
 
 function CharactersListPage() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [offset, setOffset] = useState(0);
-  const [search, setSearch] = useState('');
+  /* const with empty string */ /* SETSEARCH UPDATES THE VALUE OF SEARCH */
+  const [search, setSearch] = useState(''); 
 
   useEffect(() => {
     const params = {
@@ -23,19 +25,21 @@ function CharactersListPage() {
       hash: HASH,
       limit: LIMIT,
       offset,
+      /* The nameStartsWith only adds params if search is true */
+      /* ... INCLUDES ALL THE PROPERTIES OF AN OBJECT INSIDE ANOTHER OBJECT */
       ...(search && { nameStartsWith: search })
     };
-
-    axios.get(`${API_URL}/characters`, { params })
-      .then(({ data }) => {
-        setCharacters(data.data.results);
+      /* GIVES US THE CHARACTERS DATA */
+    axios.get(`${API_URL}/characters`, { params }) /* NEED THE PARAMS OF THE KEY */
+      .then(({ charList }) => {
+        setCharacters(charList.data.results);
         setLoading(false);
       })
       .catch(error => {
         console.error("Error fetching data: ", error);
         setLoading(false);
       });
-  }, [offset, search]);
+  }, [offset, search]); /* useEffect will be executed every time offset and search changes*/
 
   useEffect(() => {
     setOffset(0);
