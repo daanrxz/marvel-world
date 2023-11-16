@@ -35,7 +35,7 @@ function ComicDetailsPage() {
             params: { ts: 1, apikey: API_KEY, hash: HASH }
         })
         .then((response)=>{
-            setComic(response.data.data.results[0]);
+            setComic(response.comicsData.data.results[0]);
         })
         .catch((error)=> {
             console.error("Error fetching comic data:", error)
@@ -50,7 +50,7 @@ function ComicDetailsPage() {
                 params: { ts: 1, apikey: API_KEY, hash: HASH }
              })
              .then((response) => {
-                setCharacters(response.data.data.results);
+                setCharacters(response.charsData.data.results);
             })
             .catch((error) => {
                 console.error("Error fetching comics character:", error);

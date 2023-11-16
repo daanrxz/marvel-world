@@ -34,7 +34,7 @@ const handleBack = () => {
         })
         .then((response) => {
             
-            const oneSerie = response.data.data.results[0];
+            const oneSerie = response.seriesData.data.results[0];
             setSerie(oneSerie); 
         })
         .catch((error) => {
@@ -52,7 +52,7 @@ const handleBack = () => {
                 params: { ts: 1, apikey: API_KEY, hash: HASH }
             })
             .then((response) => {
-                setCharacters(response.data.data.results);
+                setCharacters(response.charsData.data.results);
             })
             .catch((error) => {
                 console.error("Error fetching serie characters", error);
@@ -64,7 +64,7 @@ const handleBack = () => {
             params: { ts: 1, apikey: API_KEY, hash: HASH }
             })
             .then((response) => {
-            setComics(response.data.data.results);
+            setComics(response.comicsData.data.results);
             })
             .catch((error) => {
             console.error("Error fetching serie comics", error);

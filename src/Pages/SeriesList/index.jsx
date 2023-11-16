@@ -27,8 +27,8 @@ function SeriesListPage() {
     };
 
     axios.get(`${API_URL}/series`, { params })
-      .then(({ data }) => {
-        setSeries(data.data.results);
+      .then(({ data: seriesData }) => {
+        setSeries(seriesData.data.results);
         setLoading(false);
       })
       .catch(error => {
