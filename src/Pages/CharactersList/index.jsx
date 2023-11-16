@@ -31,8 +31,8 @@ function CharactersListPage() {
     };
       /* GIVES US THE CHARACTERS DATA */
     axios.get(`${API_URL}/characters`, { params }) /* NEED THE PARAMS OF THE KEY */
-      .then(({ charList }) => {
-        setCharacters(charList.data.results);
+      .then(({ data: charsData}) => {
+        setCharacters(charsData.data.results);
         setLoading(false);
       })
       .catch(error => {
