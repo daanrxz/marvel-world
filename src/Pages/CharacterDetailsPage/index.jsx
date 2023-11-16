@@ -20,6 +20,7 @@ function CharacterDetailsPage() {
     const location = useLocation();
     const fromSeries = location.state?.fromSeries;
 
+    /* BACK BUTTON CONST */
     const handleBack = () => {
         if (fromSeries) {
           navigate(`/series/${fromSeries}`);

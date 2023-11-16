@@ -6,7 +6,7 @@ import Footer from '../Footer';
 const API_URL = "https://gateway.marvel.com/v1/public";
 const API_KEY = "fd986a65b294a48abcc1a51232b02444";
 const HASH = "55660d0ce5a27d43b54fdac1c38ba2e3";
- 
+  /* LIMIT OF DATA */
 const LIMIT = 20;
   /* LOADING GIF */
 const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironman_ldhhscp2.gif';

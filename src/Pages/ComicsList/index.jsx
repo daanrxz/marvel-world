@@ -83,6 +83,7 @@ function ComicsListPage() {
           ))
         )}
       </div>
+                  {/* PREVIOUS AND NEXT PAGE */}
       <div className='buttons'>
       {!search && (
     <>
