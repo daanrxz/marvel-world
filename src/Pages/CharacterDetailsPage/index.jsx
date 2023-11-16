@@ -37,7 +37,7 @@ function CharacterDetailsPage() {
                 params: { ts: 1, apikey: API_KEY, hash: HASH }
             })
             .then((response) => {
-                setCharacter(response.charsData.data.results[0]);
+                setCharacter(response.data.data.results[0]);
             })
             .catch((error) => {
                 console.error("Error fetching character data:", error);
@@ -52,7 +52,7 @@ function CharacterDetailsPage() {
                 params: { ts: 1, apikey: API_KEY, hash: HASH }
             })
             .then((response) => {
-                setComics(response.charData.data.results);
+                setComics(response.data.data.results);
             })
             .catch((error) => {
                 console.error("Error fetching character comics:", error);
@@ -64,7 +64,7 @@ function CharacterDetailsPage() {
             params: { ts: 1, apikey: API_KEY, hash: HASH }
             })
             .then((response) => {
-            setSeries(response.charData.data.results);
+            setSeries(response.data.data.results);
             })
             .catch((error) => {
             console.error("Error fetching character series:", error);
