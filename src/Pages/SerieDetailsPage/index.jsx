@@ -38,7 +38,7 @@ const handleBack = () => {
             setSerie(oneSerie); 
         })
         .catch((error) => {
-            console.error("Error fetching character data:", error);
+            console.error("Error fetching serie data:", error);
         })
         .finally(() => {
             setLoading(false); 
@@ -55,7 +55,7 @@ const handleBack = () => {
                 setCharacters(response.data.data.results);
             })
             .catch((error) => {
-                console.error("Error fetching character comics:", error);
+                console.error("Error fetching serie characters", error);
             });
         
         // fetch serie comics
@@ -67,7 +67,7 @@ const handleBack = () => {
             setComics(response.data.data.results);
             })
             .catch((error) => {
-            console.error("Error fetching character series:", error);
+            console.error("Error fetching serie comics", error);
             });
             
     }, [serieId]); 
@@ -101,7 +101,7 @@ const handleBack = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p className="no-items">No comics available for this character.</p>
+                    <p className="no-items">No comics available for {serie.title}.</p>
                 )}
             </div>
             <div className="series-details-div">
@@ -115,7 +115,7 @@ const handleBack = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p className="no-items">No characters available for this character.</p>
+                    <p className="no-items">No characters available for {serie.title}.</p>
                 )}
             </div>
 

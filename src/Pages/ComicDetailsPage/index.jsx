@@ -44,7 +44,7 @@ function ComicDetailsPage() {
             setLoading(false);
         });
 
-        //Fetch comic character
+        //Fetch Comic character
 
         axios.get(`${API_URL}/comics/${comicId}/characters`, {
                 params: { ts: 1, apikey: API_KEY, hash: HASH }
@@ -89,7 +89,7 @@ function ComicDetailsPage() {
                         ))}
                     </ul>
                 ) : (
-                    <p className="no-items">No characters available for this comic.</p>
+                    <p className="no-items">No characters available for {comic.title}.</p>
                 )}
             </div>   
         </div>

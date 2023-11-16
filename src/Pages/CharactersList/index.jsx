@@ -14,7 +14,7 @@ const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironm
 function CharactersListPage() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(0); /* 0 is the beginning of the list of characters */
   /* const with empty string */ /* SETSEARCH UPDATES THE VALUE OF SEARCH */
   const [search, setSearch] = useState(''); 
 
@@ -24,7 +24,7 @@ function CharactersListPage() {
       apikey: API_KEY,
       hash: HASH,
       limit: LIMIT,
-      offset,
+      offset, /* offset as a parameter */
       /* The nameStartsWith only adds params if search is true */
       /* ... INCLUDES ALL THE PROPERTIES OF AN OBJECT INSIDE ANOTHER OBJECT */
       ...(search && { nameStartsWith: search })
@@ -43,7 +43,7 @@ function CharactersListPage() {
 
   useEffect(() => {
     setOffset(0);
-  }, [search]);
+  }, [search]); /* RESETS THE OFFSET TO 0 EACH TIME SEARCH CHANGES */
 
   return (
     <div>
@@ -76,11 +76,12 @@ function CharactersListPage() {
         </Link>
       ))}
     </div>
+              {/* PREVIOUS AND NEXT PAGE */}
       <div className='buttons'>
-        <button className='buttons-box' onClick={() => setOffset(o => o - LIMIT)} disabled={offset === 0}>
+        <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset - LIMIT)} disabled={offset === 0}> {/* LESS LIMIT 20 */}
           Previous Page
         </button>
-        <button className='buttons-box' onClick={() => setOffset(o => o + LIMIT)} disabled={characters.length < LIMIT}>
+        <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset + LIMIT)} disabled={characters.length < LIMIT}> {/* plus limit 20 */}
           Next Page
         </button>
       </div>

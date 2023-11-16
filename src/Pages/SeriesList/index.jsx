@@ -72,10 +72,10 @@ function SeriesListPage() {
         )}
       </div>
       <div className='buttons'>
-        <button className='buttons-box' onClick={() => setOffset(o => Math.max(0, o - LIMIT))} disabled={offset === 0}>
+      <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset - LIMIT)} disabled={offset === 0}>
           Previous Page
         </button>
-        <button className='buttons-box' onClick={() => setOffset(o => o + LIMIT)} disabled={series.length < LIMIT}>
+        <button className='buttons-box' onClick={() => setOffset(currentOffset => currentOffset + LIMIT)} disabled={series.length < LIMIT}>
           Next Page
         </button>
       </div>

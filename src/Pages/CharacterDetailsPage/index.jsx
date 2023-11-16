@@ -106,7 +106,7 @@ function CharacterDetailsPage() {
                         ))}
                     </ul>
                 ) : (
-                    <p className="no-items">No comics available for this {character.name}.</p>
+                    <p className="no-items">No comics available for {character.name}.</p>
                 )}
             </div>
             <div className="series-details-div">
