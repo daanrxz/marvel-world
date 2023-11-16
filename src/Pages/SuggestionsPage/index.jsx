@@ -70,7 +70,7 @@ function SuggestionPage() {
     <div>
       <div className='header-idea'>
          <h2 className='suggestion-page-title'>Have an idea?</h2>
-          <p>Help us with new ideias for our Universe</p>
+          <p>Help us with new ideas for our Universe</p>
       </div>
       <div className="suggestion-main">
         <div className="form-box">

@@ -6,9 +6,9 @@ import Footer from '../Footer';
 
 const loadingGif = 'https://phoneky.co.uk/thumbs/screensavers/down/fantasy/ironman_ldhhscp2.gif';
 
-const API_URL = "https://gateway.marvel.com/v1/public";
-const API_KEY = "fd986a65b294a48abcc1a51232b02444";
-const HASH = "55660d0ce5a27d43b54fdac1c38ba2e3";
+const API_URL = import.meta.env.VITE_API_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const HASH = import.meta.env.VITE_HASH;
 
 function SerieDetailsPage() {
     const [serie, setSerie] = useState(null); 
