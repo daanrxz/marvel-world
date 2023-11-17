@@ -1,6 +1,10 @@
 import React from 'react';
 
 function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
+
+  /* Triggered when there's a change in any of the form inputs.
+    Extracts the name and value from the event target (the input element).
+    Updates the formData state with the new value for the respective field using setFormData. */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -8,7 +12,9 @@ function FormComponent({ formData, setFormData, onSubmit, isEditing}) {
       [name]: value
     });
   };
-
+  /* Called when the form is submitted.
+    Prevents the default form submission action using e.preventDefault().
+    Calls the onSubmit prop function, passing the event e. */
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(e);

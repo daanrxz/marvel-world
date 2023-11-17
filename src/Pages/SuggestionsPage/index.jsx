@@ -3,6 +3,8 @@ import FormComponent from '../FormComponent';
 import axios from 'axios';
 import Footer from '../Footer';
 
+/* INITIAL FORM STATE  */
+
 const initialFormState = {
   title: '',
   category: 'Characters',
@@ -27,19 +29,21 @@ function SuggestionPage() {
 
     fetchComments();
   }, []);
-
+      /* Distinguishes between adding a new comment and editing an existing one based on the editingIndex.
+    For edits, sends a PUT request; for new comments, a POST request.
+    Updates the comments state accordingly and resets the form and editingIndex. */
   async function handleFormSubmit(e) {
     e.preventDefault();
     try {
       if (editingIndex !== null) {
-        // Edit existing comment
+        // Edit existing comment .put
         const response = await axios.put(`https://marvel-world-backend.onrender.com/comments/${comments[editingIndex].id}`, formData);
         const updatedComments = [...comments];
         updatedComments[editingIndex] = response.data;
         setComments(updatedComments);
         setEditingIndex(null);
       } else {
-        // Add new comment
+        // Add new comment .post
         const response = await axios.post("https://marvel-world-backend.onrender.com/comments", formData);
         setComments([...comments, response.data]);
       }
@@ -48,13 +52,15 @@ function SuggestionPage() {
     }
     setFormData(initialFormState);
   }
-
+  /* Sets the editingIndex and updates
+     the formData with the data of the comment to be edited. */
   const handleEdit = (index) => {
     setEditingIndex(index);
     const commentToEdit = comments[index];
     setFormData({ ...commentToEdit});
   };
-
+  /* Sends a DELETE request to the backend and 
+     updates the comments state by filtering out the deleted comment. */
   const handleDelete = async (index) => {
     const commentToDelete = comments[index];
     try {
